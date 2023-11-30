@@ -1,4 +1,5 @@
 import character from "../character.js";
+import { compare } from "../character.js";
 import { charactersStatus } from "../character.js";
 
 test("check healthy", () => {
@@ -17,10 +18,10 @@ test("check critical", () => {
 });
 
 test("compare arrays", () => {
-  const notSortedArray = [
-    { name: "мечник", health: 10 },
+  const sortArray = compare(charactersStatus);
+  expect(sortArray).toEqual([
     { name: "маг", health: 100 },
     { name: "лучник", health: 80 },
-  ];
-  expect(notSortedArray).toEqual(charactersStatus);
+    { name: "мечник", health: 10 },
+  ]);
 });
